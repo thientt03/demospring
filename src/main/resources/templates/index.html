@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>LOL List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<!--    <style>-->
+<!--        body{-->
+<!--            width: auto;-->
+<!--            height: auto;-->
+<!--            background-image: url("https://xephanggame.com/wp-content/uploads/2019/07/zed-wallpaper.jpg");-->
+<!--        }-->
+<!--    </style>-->
+
+</head>
+<body>
+
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1>Manage LOL</h1>
+    <table class="table table-active">
+        <tr>
+            <th>Name</th>
+            <th>Dame</th>
+            <th>Diff</th>
+        </tr>
+        <tr th:each="lols : ${lols}">
+            <td th:text="${lols.noname}"></td>
+            <td th:text="${lols.dame}"></td>
+            <td th:text="${lols.different}"></td>
+            <td>
+                <a th:href="@{/edit?nonameId={id}(id=${lols.nonameId})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete?nonameId={id}(id=${lols.nonameId})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/add" class="btn btn-success">Add Lol</a>
+</div>
+</body>
+</html>
